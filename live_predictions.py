@@ -203,7 +203,7 @@ class MatchPrediction:
 ╔══════════════════════════════════════════════════════════════╗
 ║           🔴 LIVE REAL-TIME PREDICTION 🔴                   ║
 ║        (Timestamp: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')})        ║
-╚══════════════════════════════════════════════════════════════╝
+╚═══════��══════════════════════════════════════════════════════╝
 
 🏠 HOME: {self.home_team.name}
    Rating: {self.home_team.rating}/100 | Form: {self.home_team.recent_form}/100
@@ -311,11 +311,48 @@ if __name__ == "__main__":
     match2 = MatchPrediction(puebla, toluca, h2h_puebla_toluca, chaos_probability=0.35)
     print(match2.generate_prediction_report())
     
+    # MATCH 3: İNKILAPSPOR vs TUZLASPOR (Turkish Cup)
+    print("\n")
+    print("=" * 70)
+    print("LIVE MATCH 3: İNKILAPSPOR vs TUZLASPOR (Turkish Cup)")
+    print("=" * 70)
+    
+    inkilapspor = Team(
+        name="İnkılapspor",
+        rating=65,
+        recent_form=58,  # 2W-4L recent form = 33% win rate
+        goals_for=1.4,
+        goals_against=1.8,
+        injury_level=6,
+        manager_rating=72,
+        crowd_strength=1.10,
+        mental_strength=78,  # Better mental resilience than Tuzlaspor
+        luck_factor=0.95
+    )
+    
+    tuzlaspor = Team(
+        name="Tuzlaspor",
+        rating=64,
+        recent_form=55,  # 2W-1D-3L recent form = 33% win rate
+        goals_for=1.3,
+        goals_against=1.9,
+        injury_level=7,
+        manager_rating=70,
+        crowd_strength=1.0,  # Away team
+        mental_strength=72,  # Lower mental strength
+        luck_factor=1.05
+    )
+    
+    h2h_inkilap_tuzla = {'home_wins': 1, 'away_wins': 1, 'draws': 2}
+    match3 = MatchPrediction(inkilapspor, tuzlaspor, h2h_inkilap_tuzla, chaos_probability=0.38)
+    print(match3.generate_prediction_report())
+    
     # SUMMARY
     print("\n")
     print("█" * 70)
     print("█" + " " * 68 + "█")
-    print("█" + "  ⚽ PREDICTIONS COMPLETE - WATCH THE MATCHES! ⚽".center(68) + "█")
+    print("█" + "  ⚽ 3 PREDICTIONS COMPLETE - WATCH THE MATCHES! ⚽".center(68) + "█")
+    print("█" + "  (Waiting for 4th match details...)".center(68) + "█")
     print("█" + " " * 68 + "█")
     print("█" * 70)
     print("\n")
