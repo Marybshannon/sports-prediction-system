@@ -90,6 +90,10 @@ class MatchPrediction:
 
 # Example: São Paulo vs Boca Juniors
 if __name__ == "__main__":
+    print("=" * 50)
+    print("PREDICTION SET 1: SÃO PAULO vs BOCA JUNIORS")
+    print("=" * 50)
+    
     # Team data (example values)
     sao_paulo = Team(
         name="São Paulo FC",
@@ -108,5 +112,30 @@ if __name__ == "__main__":
     )
     
     # Generate prediction
-    match = MatchPrediction(sao_paulo, boca_juniors)
-    print(match.generate_prediction_report())
+    match1 = MatchPrediction(sao_paulo, boca_juniors)
+    print(match1.generate_prediction_report())
+    
+    print("\n" + "=" * 50)
+    print("PREDICTION SET 2: PUEBLA vs TOLUCA")
+    print("=" * 50)
+    
+    # Puebla vs Toluca prediction
+    puebla = Team(
+        name="FC Puebla",
+        rating=72,
+        recent_form=68,
+        goals_for=1.5,
+        goals_against=1.4
+    )
+    
+    toluca = Team(
+        name="Toluca FC",
+        rating=80,
+        recent_form=82,
+        goals_for=2.0,
+        goals_against=0.9
+    )
+    
+    # Generate prediction
+    match2 = MatchPrediction(puebla, toluca)
+    print(match2.generate_prediction_report())
